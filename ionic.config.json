@@ -1,0 +1,7 @@
+{
+  "name": "gestor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
