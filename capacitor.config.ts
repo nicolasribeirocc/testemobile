@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'gestor',
+  appId: 'com.casadocredito.app',
+  appName: 'compliance',
   webDir: 'build',
   bundledWebRuntime: false
 };
