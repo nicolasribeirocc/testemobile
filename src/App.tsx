@@ -62,7 +62,7 @@ const App: React.FC = () => {
           <Login data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit}/>
         </Route>
         <Route exact path="/home">
-          <Home data={data} email={email}/>
+          <Home data={data} email={email} setData={setData}/>
         </Route>
         <Route exact path={'/aprovar-documentos'}>
           <AprovarDocumentos />

@@ -11,18 +11,19 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
+import { App } from '@capacitor/app';
 import { FaUserCircle, FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } from 'react-icons/fa'
 import { useHistory } from 'react-router';
 import { Container } from './style';
 
-function Menu({elemento, email}: any) {
+function Menu({elemento, email, setData}: any) {
   const history = useHistory()
 
   const navigateToDashboard = () => history.push('/home')
   const navigateToAprovar = () => history.push('/aprovar-documentos')
   const navigateToAprovados = () => history.push('/documentos-aprovados')
   const navigateToReprovados = () => history.push('/home/reprovados')
-  const logOut = () => history.push('/')
+  const logOut = () => App.exitApp()
 
   return (
     <Container>

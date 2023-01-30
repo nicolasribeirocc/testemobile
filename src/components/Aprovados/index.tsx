@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FaEye } from 'react-icons/fa'
-import { Container, Dados, Labels, Registro, Usuarios } from './style'
+import { Container, Labels, Titulo} from './style'
 import axios from 'axios';
+import Dados from 'components/Dados';
 
 interface Props {
   data?: {
@@ -27,20 +27,14 @@ const AprovadosComp = ({data}: Props)  => {
 
   return (
     <Container>
+      <Titulo>Documentos Aprovados</Titulo>
       <Labels>
         <p>#</p>
         <p>Usuário</p>
         <p>Data</p>
       </Labels>
-      {usuarios && usuarios.data.map((usuario: any) => (
-        <Registro key={usuario.id_new}>
-          <Dados>
-            <p>{usuario.id_new}</p>
-            <Usuarios>{usuario.fullName}</Usuarios>
-            <p>{usuario.createdAt}</p>
-          </Dados>
-          <button>{<FaEye />}</button>
-        </Registro>
+      {usuarios && usuarios.data.map((usuario: Object) => (
+        <Dados usuario={usuario}/>
       ))}
 
     </Container>

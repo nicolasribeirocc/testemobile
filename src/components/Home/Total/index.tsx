@@ -13,7 +13,7 @@ const Total = () => {
   }, [])
   return (
     <Container>
-        <FaUsers size={100} />
+        <FaUsers size={70} />
         <p>Total de contas {qtd}</p>
     </Container>
   )

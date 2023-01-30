@@ -10,9 +10,10 @@ export const Container = styled.div`
   justify-content: center;
 `
 
+
 export const Logo = styled(LogoLetra)`
-    width: 350px;
-    height: fit-content;
-    position: absolute;
-    top: 60px;
+  height: fit-content;
+  position: absolute;
+  top: 2.5em;
+  width: 350px;
 `

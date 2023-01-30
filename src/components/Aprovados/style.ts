@@ -6,6 +6,7 @@ export const Container = styled.div`
 `
 
 export const Labels = styled.div`
+  font-weight: bold;
   color: #fff;
   display: flex;
 
@@ -18,41 +19,15 @@ export const Labels = styled.div`
   }
 
   & p:nth-child(3) {
-      padding-left: 140px;
+      padding-left: 120px;
   }
 `
-
-export const Registro = styled.div`
-  align-items: center;
+export const Titulo = styled.h2`
+  font-size: xx-large;
+  font-weight: bold;
   color: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 10px;
-
-  & button {
-    background-color: #fff;
-    border-radius: 10px;
-    height: 50px;
-    width: 18%;
-}
-`
-
-export const Dados = styled.div`
-  align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  color: #000;
-  font-size: small;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 5px;
+  margin: 0 auto;
+  padding: 1em 0;
   text-align: center;
-  width: 80%;
-`
-
-export const Usuarios = styled.p`
-  padding-left: 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; 
+  width: 60%;
 `

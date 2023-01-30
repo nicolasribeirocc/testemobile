@@ -15,6 +15,7 @@ const Grafico = () => {
             {x: 2, y: 150, label: "Aprovados", fill: "#F15922"},
             {x: 3, y: 25, label: "Reprovados", fill: "#2E3155"},
             {x: 4, y: 10, label: "Cancelados", fill:"#fbff00"},
+            {x: 5, y: 0, fill:"#fbff00"},
           ]}
           alignment="start"
           style={{

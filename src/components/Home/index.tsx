@@ -1,6 +1,5 @@
 import React from 'react'
 import Contador from './Contador'
-import Grafico from './Grafico'
 import { Container, Logo } from './style'
 import Total from './Total'
 
@@ -17,7 +16,6 @@ const HomeComp = ({data, email}: Props)=> {
   return (
     <Container>
       <Logo />
-      <Grafico />
       <Total />
       <Contador />
     </Container>

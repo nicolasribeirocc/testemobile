@@ -3,20 +3,23 @@ import HomeComp from 'components/Home';
 import Menu from 'components/Menu';
 import React from 'react'
 
-interface Props {
-  data?: {
-    status?: number,
-    message?: string,
-    token?: number
-  } | undefined,
-  email?: string | undefined
+type Data = {
+  status?: number,
+  message?: string,
+  toke?: number
 }
 
-const Home: React.FC<Props> = ({data, email}) => {
+interface Props {
+  data?: Data | undefined,
+  email?: string | undefined,
+  setData: React.Dispatch<React.SetStateAction<Data | undefined>>
+}
+
+const Home: React.FC<Props> = ({data, email, setData}) => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Menu email={email} elemento={<HomeComp data={data} email={email} />}/>
+        <Menu elemento={<HomeComp data={data} email={email} />} setData={setData}/>
       </IonContent>
     </IonPage>
 
