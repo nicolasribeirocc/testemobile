@@ -1,5 +1,5 @@
 import { IonContent, IonPage } from '@ionic/react';
-import AprovadosComp from 'components/Aprovados';
+import ReprovadoComp from 'components/Reprovados';
 import Menu from 'components/Menu';
 import React from 'react'
 
@@ -13,16 +13,16 @@ interface Props {
   email?: string | undefined,
 }
 
-const Aprovados: React.FC<Props>= ({data, email}) => {
+const Reprovados: React.FC<Props>= ({data, email}) => {
   
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Menu elemento={<AprovadosComp data={data} />} email={email}/>
+        <Menu elemento={<ReprovadoComp data={data} />} email={email}/>
       </IonContent>
     </IonPage>
 
   );
 };
 
-export default Aprovados
+export default Reprovados

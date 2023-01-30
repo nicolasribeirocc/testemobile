@@ -18,6 +18,7 @@ import { MouseEvent, useState } from 'react';
 import axios from 'axios';
 import AprovarDocumentos from 'pages/AprovarDocumentos';
 import Aprovados from 'pages/DocumentosAprovados';
+import Reprovados from 'pages/Reprovados';
 
 
 setupIonicReact();
@@ -62,13 +63,16 @@ const App: React.FC = () => {
           <Login data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit}/>
         </Route>
         <Route exact path="/home">
-          <Home data={data} email={email} setData={setData}/>
+          <Home data={data} email={email} />
         </Route>
         <Route exact path={'/aprovar-documentos'}>
-          <AprovarDocumentos />
+          <AprovarDocumentos data={data} email={email}/>
         </Route>
         <Route exact path={'/documentos-aprovados'}>
-          <Aprovados data={data} />
+          <Aprovados data={data} email={email}/>
+        </Route>
+        <Route exact path={'/reprovados'}>
+          <Reprovados data={data} email={email}/>
         </Route>
       </Switch>
     </IonReactRouter>

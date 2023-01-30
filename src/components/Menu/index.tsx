@@ -16,13 +16,13 @@ import { FaUserCircle, FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } fr
 import { useHistory } from 'react-router';
 import { Container } from './style';
 
-function Menu({elemento, email, setData}: any) {
+function Menu({elemento, email}: any) {
   const history = useHistory()
 
   const navigateToDashboard = () => history.push('/home')
   const navigateToAprovar = () => history.push('/aprovar-documentos')
   const navigateToAprovados = () => history.push('/documentos-aprovados')
-  const navigateToReprovados = () => history.push('/home/reprovados')
+  const navigateToReprovados = () => history.push('/reprovados')
   const logOut = () => App.exitApp()
 
   return (
@@ -31,31 +31,31 @@ function Menu({elemento, email, setData}: any) {
         <IonHeader>
           <IonToolbar>
             <IonTitle>
-              <FaUserCircle />
-              {email}
+              {/* <FaUserCircle style={{fontSize: 30, paddingRight: 10}}/> */}
+              <span style={{fontSize: 20}}>{email}</span>
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
           <IonList>
             <IonItem>
-              <FaAlignLeft /> 
+              <FaAlignLeft style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
               <span onClick={navigateToDashboard}>Dashboard</span>
             </IonItem>
             <IonItem>
-              <FaFile />
+              <FaFile style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/>
               <p onClick={navigateToAprovar}>Aprovar Documentos</p>
             </IonItem>
             <IonItem>
-              <FaFileAlt /> 
+              <FaFileAlt style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
               <p onClick={navigateToAprovados}>Documentos Aprovados</p>
             </IonItem>
             <IonItem>
-              <FaListUl />
+              <FaListUl style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/>
               <p onClick={navigateToReprovados}>Reprovados</p>
             </IonItem>
             <IonItem>
-              <FaPowerOff /> 
+              <FaPowerOff style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
               <p onClick={logOut}>Sair</p>
             </IonItem>
           </IonList>

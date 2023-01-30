@@ -5,7 +5,7 @@ import { Infos, Registro, Usuarios } from './style'
 const Dados = ({usuario}: any) => {
   return (
     <>
-      <Registro key={usuario.id_new}>
+      <Registro>
         <Infos>
           <p>{usuario.id_new}</p>
           <Usuarios>{usuario.fullName}</Usuarios>

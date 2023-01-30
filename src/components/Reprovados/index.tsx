@@ -12,11 +12,11 @@ interface Props {
   }
 }
 
-const AprovarComp = ({data}: Props) => {
+const ReprovadoComp = ({data}: Props) => {
   const [ usuarios, setUsuarios ] = useState<any>()
 
   useEffect(() => {
-    axios.get(`https://contause.digital/valida/consult.php?agency=${data?.agency}&accountCreationStatus=AWAITING_DOCUMENT_APPROVAL`)
+    axios.get(`https://contause.digital/valida/consult.php?agency=${data?.agency}&accountCreationStatus=COMPLETED_FAIL`)
     .then((response) => {
       setUsuarios(response)
     })
@@ -27,7 +27,7 @@ const AprovarComp = ({data}: Props) => {
 
   return (
     <Container>
-      <Titulo>Aprovar Documentos</Titulo>
+      <Titulo>Documentos Reprovados</Titulo>
       <Labels>
         <p>#</p>
         <p>Usuário</p>
@@ -41,4 +41,4 @@ const AprovarComp = ({data}: Props) => {
   )
 }
 
-export default AprovarComp
+export default ReprovadoComp

@@ -12,14 +12,13 @@ type Data = {
 interface Props {
   data?: Data | undefined,
   email?: string | undefined,
-  setData: React.Dispatch<React.SetStateAction<Data | undefined>>
 }
 
-const Home: React.FC<Props> = ({data, email, setData}) => {
+const Home: React.FC<Props> = ({data, email}) => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Menu elemento={<HomeComp data={data} email={email} />} setData={setData}/>
+        <Menu elemento={<HomeComp data={data} />} email={email} />
       </IonContent>
     </IonPage>
 

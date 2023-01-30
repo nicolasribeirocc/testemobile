@@ -33,10 +33,9 @@ const AprovadosComp = ({data}: Props)  => {
         <p>Usuário</p>
         <p>Data</p>
       </Labels>
-      {usuarios && usuarios.data.map((usuario: Object) => (
-        <Dados usuario={usuario}/>
+      {usuarios && usuarios.data.map((usuario: any) => (
+        <Dados key={usuario.id_new} usuario={usuario}/>
       ))}
-
     </Container>
   )
 }
