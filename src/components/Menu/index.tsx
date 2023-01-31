@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import { 
   IonButtons,
   IonContent,
@@ -11,19 +11,36 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
-import { App } from '@capacitor/app';
-import { FaUserCircle, FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } from 'react-icons/fa'
+import { FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } from 'react-icons/fa'
 import { useHistory } from 'react-router';
 import { Container } from './style';
 
-function Menu({elemento, email}: any) {
+type Data = {
+  status?: number,
+  message?: string,
+  token?: number
+}
+interface Props {
+  elemento: ReactElement<any, any>,
+  email: string | undefined,
+  setEmail: Dispatch<SetStateAction<string | undefined>>,
+  setSenha: Dispatch<SetStateAction<string | undefined>>,
+  setData: Dispatch<React.SetStateAction<Data | string | undefined>>
+}
+
+function Menu({elemento, email, setEmail, setSenha, setData}: Props | any ) {
   const history = useHistory()
 
   const navigateToDashboard = () => history.push('/home')
   const navigateToAprovar = () => history.push('/aprovar-documentos')
   const navigateToAprovados = () => history.push('/documentos-aprovados')
   const navigateToReprovados = () => history.push('/reprovados')
-  const logOut = () => App.exitApp()
+  const logOut = () => {
+    setEmail('')
+    setSenha('')
+    setData('')
+    history.push('/')
+  }
 
   return (
     <Container>

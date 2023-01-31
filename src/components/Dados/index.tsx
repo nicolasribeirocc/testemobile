@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEye } from 'react-icons/fa'
+import { FaRegEye } from 'react-icons/fa'
 import { Infos, Registro, Usuarios } from './style'
 
 const Dados = ({usuario}: any) => {
@@ -11,7 +11,7 @@ const Dados = ({usuario}: any) => {
           <Usuarios>{usuario.fullName}</Usuarios>
           <p>{usuario.createdAt}</p>
         </Infos>
-        <button>{<FaEye />}</button>
+        <button>{<FaRegEye />}</button>
       </Registro>
     </>
   )

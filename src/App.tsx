@@ -31,7 +31,7 @@ type Data = {
 
 
 const App: React.FC = () => {
-  const [ data, setData ] = useState<Data>()
+  const [ data, setData ] = useState<Data | any>()
   const [ email, setEmail ] = useState<string | undefined>()
   const [ senha, setSenha ] = useState<string | undefined>()
 
@@ -63,16 +63,16 @@ const App: React.FC = () => {
           <Login data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit}/>
         </Route>
         <Route exact path="/home">
-          <Home data={data} email={email} />
+          <Home data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
         </Route>
         <Route exact path={'/aprovar-documentos'}>
-          <AprovarDocumentos data={data} email={email}/>
+          <AprovarDocumentos data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
         </Route>
         <Route exact path={'/documentos-aprovados'}>
-          <Aprovados data={data} email={email}/>
+          <Aprovados data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
         </Route>
         <Route exact path={'/reprovados'}>
-          <Reprovados data={data} email={email}/>
+          <Reprovados data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
         </Route>
       </Switch>
     </IonReactRouter>

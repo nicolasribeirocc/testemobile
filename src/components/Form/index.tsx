@@ -32,7 +32,7 @@ const Form = ({data, setEmail, setSenha, handleSubmit}:Props) => {
           id='email' 
           placeholder='contause@casadocredito.com.br' 
           autoComplete='off'
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toLowerCase().trimStart().trimEnd())}
         />
         <label htmlFor="senha">Senha</label>
         <input 
