@@ -23,6 +23,7 @@ export const Infos = styled.div`
   font-size: small;
   display: flex;
   justify-content: space-between;
+  min-height: 50px;;
   padding-left: 5px;
   text-align: center;
   width: 80%;

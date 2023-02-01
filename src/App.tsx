@@ -19,7 +19,7 @@ import axios from 'axios';
 import AprovarDocumentos from 'pages/AprovarDocumentos';
 import Aprovados from 'pages/DocumentosAprovados';
 import Reprovados from 'pages/Reprovados';
-
+import AnalisePerfil from 'pages/AnalisePerfil';
 
 setupIonicReact();
 
@@ -45,7 +45,7 @@ const App: React.FC = () => {
       if(response.data.status === 0) {
         erro({
           header: 'Login Incorreto',
-          message: 'Informacoes Incorretas',
+          message: 'Insira dados válidos',
           buttons: ['OK'],
         })
       } 
@@ -73,6 +73,9 @@ const App: React.FC = () => {
         </Route>
         <Route exact path={'/reprovados'}>
           <Reprovados data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+        </Route>
+        <Route path={'/analise-perfil/:id'}>
+          <AnalisePerfil data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
         </Route>
       </Switch>
     </IonReactRouter>

@@ -7,7 +7,7 @@ interface Props {
   data?: {
     status?: number,
     message?: string,
-    toke?: number,
+    token?: number,
     agency?: string,
   }
 }
