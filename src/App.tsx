@@ -62,13 +62,21 @@ const App: React.FC = () => {
     if (Capacitor.isNativePlatform()) {
       capApp.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
-          capApp.exitApp()
+          // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Tem certeza?");
+          if (ans) {
+            capApp.exitApp()
+          } 
         } else if (window.location.pathname === "/home") {
-          capApp.exitApp();
+           // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Tem certeza?");
+          if (ans) {
+            capApp.exitApp();
+          } 
         } 
-      })
+      });
     }
-  }, [])
+  }, []);
   
   return (
   <IonApp>
