@@ -1,3 +1,5 @@
+import { Capacitor } from "@capacitor/core";
+import { App as capApp} from "@capacitor/app";
 import { Route, Switch } from 'react-router-dom';
 import { IonApp, setupIonicReact, useIonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -14,7 +16,7 @@ import '@ionic/react/css/typography.css';
 /* Theme variables */
 import './theme/variables.css';
 import Home from 'pages/Home';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 import AprovarDocumentos from 'pages/AprovarDocumentos';
 import Aprovados from 'pages/DocumentosAprovados';
@@ -54,6 +56,26 @@ const App: React.FC = () => {
       console.log(error);
     })    
   }
+
+  useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      capApp.addListener("backButton", (e) => {
+        if (window.location.pathname === "/") {
+          // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Tem certeza?");
+          if (ans) {
+            capApp.exitApp()
+          } 
+        } else if (window.location.pathname === "/home") {
+           // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Tem certeza?");
+          if (ans) {
+            capApp.exitApp();
+          } 
+        } 
+      });
+    }
+  }, []);
   
   return (
   <IonApp>
