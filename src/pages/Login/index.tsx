@@ -10,8 +10,8 @@ interface Props {
     message?: string,
     token?: number
   },
-  setEmail: Dispatch<SetStateAction<string | undefined>>,
-  setSenha: Dispatch<SetStateAction<string | undefined>>,
+  setEmail: Dispatch<SetStateAction<string | undefined> | null>,
+  setSenha: Dispatch<SetStateAction<string | undefined> | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void
 }
 

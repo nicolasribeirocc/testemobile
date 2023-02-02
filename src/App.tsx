@@ -35,8 +35,8 @@ type Data = {
 
 const App: React.FC = () => {
   const [ data, setData ] = useState<Data | any>()
-  const [ email, setEmail ] = useState<string | undefined>()
-  const [ senha, setSenha ] = useState<string | undefined>()
+  const [ email, setEmail ] = useState<any>()
+  const [ senha, setSenha ] = useState<any>()
 
   const [erro] = useIonAlert() 
 

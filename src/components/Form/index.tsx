@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { Dispatch, MouseEvent, MutableRefObject, SetStateAction, useEffect, useRef } from 'react'
+import React, { Dispatch, MouseEvent, SetStateAction, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router'
 import { FormContainer } from './style'
 
