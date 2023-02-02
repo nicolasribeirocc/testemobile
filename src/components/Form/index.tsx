@@ -9,22 +9,26 @@ interface Props {
     sucess?: string,
     token?: number
   },
-  setEmail: Dispatch<SetStateAction<string | undefined>>,
-  setSenha: Dispatch<SetStateAction<string | undefined>>,
+  setEmail: Dispatch<SetStateAction<string | undefined> | null>,
+  setSenha: Dispatch<SetStateAction<string | undefined > | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 const Form = ({data, setEmail, setSenha, handleSubmit}:Props) => {
   const history = useHistory()
   const inputEmail = useRef<any>();
+  const inputSenha = useRef<any>();
 
   useEffect(() => {    
     if(data?.status === 1) {
       history.push('/home')
     }
 
-    if(localStorage.getItem('email')) {
+    if(localStorage.getItem('email') && localStorage.getItem('senha')) {
       inputEmail.current.value = localStorage.getItem('email')
+      inputSenha.current.value = localStorage.getItem('senha')
+      setEmail(localStorage.getItem('email'))
+      setSenha(localStorage.getItem('senha'))
     }
   })
 
@@ -47,7 +51,8 @@ const Form = ({data, setEmail, setSenha, handleSubmit}:Props) => {
         <input 
           type="password" 
           name='senha' 
-          id='senha' 
+          id='senha'
+          ref={inputSenha}
           placeholder='••••••••'
           onChange={(e) => {
             setSenha(e.target.value)
