@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, MouseEvent, useState } from "react";
 import { Capacitor } from "@capacitor/core";
 import { App as capApp } from '@capacitor/app'
 import { Route, Switch } from 'react-router-dom';
 import { IonApp, setupIonicReact, useIonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import axios from 'axios';
+
 import Login from './pages/Login';
+import Home from 'pages/Home';
+import AprovarDocumentos from 'pages/AprovarDocumentos';
+import Aprovados from 'pages/DocumentosAprovados';
+import Reprovados from 'pages/Reprovados';
+import AnalisePerfil from 'pages/AnalisePerfil';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -16,13 +23,6 @@ import '@ionic/react/css/typography.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Home from 'pages/Home';
-import { MouseEvent, useState } from 'react';
-import axios from 'axios';
-import AprovarDocumentos from 'pages/AprovarDocumentos';
-import Aprovados from 'pages/DocumentosAprovados';
-import Reprovados from 'pages/Reprovados';
-import AnalisePerfil from 'pages/AnalisePerfil';
 
 setupIonicReact();
 
@@ -62,14 +62,12 @@ const App: React.FC = () => {
     if (Capacitor.isNativePlatform()) {
       capApp.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
-          // Show A Confirm Box For User to exit app or not
           let ans = window.confirm("Tem certeza?");
           if (ans) {
             capApp.exitApp()
           } 
         } else if (window.location.pathname === "/home") {
-           // Show A Confirm Box For User to exit app or not
-          let ans = window.confirm("Tem certeza?");
+          let ans = true
           if (ans) {
             capApp.exitApp();
           } 

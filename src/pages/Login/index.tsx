@@ -1,8 +1,10 @@
+import React, { Dispatch, MouseEvent, SetStateAction } from 'react'
 import { IonContent, IonPage } from '@ionic/react';
+import { FingerprintAIO } from '@awesome-cordova-plugins/fingerprint-aio'
 import { Container } from './style';
 import Form from 'components/Form';
 import Logo from 'components/Form/logo';
-import React, { Dispatch, MouseEvent, SetStateAction } from 'react'
+
 
 interface Props {
   data?: {
@@ -16,6 +18,12 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({data, setEmail, setSenha, handleSubmit}) => {
+  FingerprintAIO.registerBiometricSecret({
+    description: "Some biometric description",
+    secret: "my-super-secret",
+    invalidateOnEnrollment: true,
+    disableBackup: true, // always disabled on Android
+  })
   
   return (
     <IonPage>
