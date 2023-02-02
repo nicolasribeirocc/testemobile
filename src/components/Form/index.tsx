@@ -40,7 +40,7 @@ const Form = ({data, setEmail, setSenha, handleSubmit}:Props) => {
           name='senha' 
           id='senha' 
           placeholder='••••••••'
-          onChange={(e) => setSenha(e.target.value)}  
+          onChange={(e) => setSenha(e.target.value)}
         />
         <button onClick={handleSubmit}>Entrar</button>
       </FormContainer>
