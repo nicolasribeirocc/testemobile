@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { IonApp, setupIonicReact, useIonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import axios from 'axios';
+import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 
 import Login from './pages/Login';
 import Home from 'pages/Home';
@@ -40,6 +41,35 @@ const App: React.FC = () => {
 
   const [erro] = useIonAlert() 
 
+  // const performBiometricVerificatin = async () => {
+  //   const result = await NativeBiometric.isAvailable();
+  
+  //   if(!result.isAvailable) return;
+  
+  //   const isFaceID = result.biometryType === BiometryType.FACE_ID;
+  
+  //   const verified = await NativeBiometric.verifyIdentity({
+  //     reason: "For easy log in",
+  //     title: "Log in",
+  //     subtitle: "Maybe add subtitle here?",
+  //     description: "Maybe a description too?",
+  //   })
+  //     .then(() => {
+  //       NativeBiometric.setCredentials({
+  //         username: "teste",
+  //         password: "teste",
+  //         server: "www.example.com",
+  //       })
+  //     })
+  //     .catch(() => false);
+  
+  //   if(!verified) return;
+  
+  //   const credentials = await NativeBiometric.getCredentials({
+  //     server: "www.example.com",
+  //   });
+  // }
+
   const handleSubmit = (e:  MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     axios.get(`https://contause.digital/valida/login.php?login=${email}&senha=${senha}`)
@@ -74,6 +104,11 @@ const App: React.FC = () => {
         } 
       });
     }
+    NativeBiometric.setCredentials({
+      username: "username",
+      password: "password",
+      server: "www.example.com",
+    }).then();
   }, []);
   
   return (
