@@ -6,7 +6,6 @@ import { IonApp, setupIonicReact, useIonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import axios from 'axios';
 import { NativeBiometric } from 'capacitor-native-biometric'
-import { useHistory } from 'react-router'
 
 import Login from './pages/Login';
 import Home from 'pages/Home';
@@ -34,12 +33,11 @@ type Data = {
   toke?: number
 }
 
-
 const App: React.FC = () => {
   const [ data, setData ] = useState<Data | any>()
   const [ email, setEmail ] = useState<any>()
   const [ senha, setSenha ] = useState<any>()
-  const history = useHistory()
+  const [ verificado, setVerificado ] = useState<any>()
 
   const [erro] = useIonAlert() 
 
@@ -93,20 +91,22 @@ const App: React.FC = () => {
         .catch(() => false);
     
       if(!verified) return;
-    
-      setEmail('teste')
-      setSenha('teste')
-      history.push('/home')
+
+      if(verified) {
+        setEmail('teste')
+        setSenha('teste')
+        setVerificado(verified)
+      }
     }
     performBiometricVerificatin()
-  }, [history]);
+  }, []);
   
   return (
   <IonApp>
     <IonReactRouter>
       <Switch>
         <Route exact path="/">
-          <Login data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit}/>
+          <Login data={data} setEmail={setEmail} setSenha={setSenha} verificado={verificado} handleSubmit={handleSubmit}/>
         </Route>
         <Route exact path="/home">
           <Home data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>

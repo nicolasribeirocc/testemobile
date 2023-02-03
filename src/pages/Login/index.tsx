@@ -12,17 +12,18 @@ interface Props {
   },
   setEmail: Dispatch<SetStateAction<string | undefined> | null>,
   setSenha: Dispatch<SetStateAction<string | undefined> | null>,
-  handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void
+  handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void,
+  verificado: boolean
 }
 
-const Login: React.FC<Props> = ({data, setEmail, setSenha, handleSubmit}) => {
+const Login: React.FC<Props> = ({data, setEmail, setSenha, handleSubmit, verificado}) => {
  
   return (
     <IonPage>
       <IonContent fullscreen>
         <Container>
           <Logo />
-          <Form data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit}/>
+          <Form data={data} setEmail={setEmail} setSenha={setSenha} handleSubmit={handleSubmit} verificado={verificado}/>
         </Container>
       </IonContent>
     </IonPage>

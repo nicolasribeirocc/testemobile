@@ -12,15 +12,16 @@ interface Props {
   setEmail: Dispatch<SetStateAction<string | undefined> | null>,
   setSenha: Dispatch<SetStateAction<string | undefined > | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void
+  verificado: boolean
 }
 
-const Form = ({data, setEmail, setSenha, handleSubmit}:Props) => {
+const Form = ({data, setEmail, setSenha, handleSubmit, verificado}:Props) => {
   const history = useHistory()
   const inputEmail = useRef<any>();
   const inputSenha = useRef<any>();
 
   useEffect(() => {    
-    if(data?.status === 1) {
+    if(data?.status === 1 || verificado) {
       history.push('/home')
     }
 
