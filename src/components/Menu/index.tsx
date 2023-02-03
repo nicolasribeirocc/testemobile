@@ -25,10 +25,11 @@ interface Props {
   email: string | undefined,
   setEmail: Dispatch<SetStateAction<string | undefined>>,
   setSenha: Dispatch<SetStateAction<string | undefined>>,
-  setData: Dispatch<React.SetStateAction<Data | string | undefined>>
+  setData: Dispatch<React.SetStateAction<Data | string | undefined>>,
+  setVerificado: Dispatch<React.SetStateAction<boolean>>
 }
 
-function Menu({elemento, email, setEmail, setSenha, setData}: Props | any ) {
+function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Props ) {
   const history = useHistory()
 
   const navigateToDashboard = () => history.push('/home')
@@ -39,6 +40,7 @@ function Menu({elemento, email, setEmail, setSenha, setData}: Props | any ) {
     setEmail('')
     setSenha('')
     setData('')
+    setVerificado(false)
     history.push('/')
   }
 

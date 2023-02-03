@@ -109,7 +109,7 @@ const App: React.FC = () => {
           <Login data={data} setEmail={setEmail} setSenha={setSenha} verificado={verificado} handleSubmit={handleSubmit}/>
         </Route>
         <Route exact path="/home">
-          <Home data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+          <Home data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData} setVerificado={setVerificado}/>
         </Route>
         <Route exact path={'/aprovar-documentos'}>
           <AprovarDocumentos data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
