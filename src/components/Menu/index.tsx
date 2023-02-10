@@ -26,7 +26,7 @@ interface Props {
   setEmail: Dispatch<SetStateAction<string | undefined>>,
   setSenha: Dispatch<SetStateAction<string | undefined>>,
   setData: Dispatch<React.SetStateAction<Data | string | undefined>>,
-  setVerificado: Dispatch<React.SetStateAction<boolean>>
+  setVerificado?: Dispatch<React.SetStateAction<boolean>>
 }
 
 function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Props ) {
@@ -38,9 +38,11 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
   const navigateToReprovados = () => history.push('/reprovados')
   const logOut = () => {
     setEmail('')
-    setSenha('')
+    setSenha('') 
     setData('')
-    setVerificado(false)
+    if(setVerificado) {
+      setVerificado(false)
+    }
     history.push('/')
   }
 

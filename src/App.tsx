@@ -84,8 +84,6 @@ const App: React.FC = () => {
       const verified = await NativeBiometric.verifyIdentity({
         reason: "For easy log in",
         title: "Log in",
-        subtitle: "Maybe add subtitle here?",
-        description: "Maybe a description too?",
       })
         .then(() => true)
         .catch(() => false);
