@@ -1,8 +1,10 @@
-import React, { Dispatch, MouseEvent, SetStateAction } from 'react'
+import React, { Dispatch, MouseEvent, SetStateAction, useEffect } from 'react'
 import { IonContent, IonPage } from '@ionic/react';
 import { Container } from './style';
 import Form from 'components/Form';
 import Logo from 'components/Form/logo';
+import { NativeBiometric } from 'capacitor-native-biometric';
+import { useHistory } from 'react-router';
 
 interface Props {
   data?: {
@@ -12,11 +14,49 @@ interface Props {
   },
   setEmail: Dispatch<SetStateAction<string | undefined> | null>,
   setSenha: Dispatch<SetStateAction<string | undefined> | null>,
+  setAgencia: Dispatch<SetStateAction<string | undefined> | null>,
+  setData: Dispatch<SetStateAction<any>>,
+  setVerificado: Dispatch<SetStateAction<any> | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void,
-  verificado: boolean
+  verificado: boolean,
+  digital: boolean
 }
 
-const Login: React.FC<Props> = ({data, setEmail, setSenha, handleSubmit, verificado}) => {
+const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, setVerificado, handleSubmit, verificado, digital}) => {
+  const history = useHistory()
+  const verificacao = localStorage.getItem('digital verificada')
+
+  useEffect(() => {
+    if(digital || verificacao) {
+      const performBiometricVerificatin = async () => {
+        const result = await NativeBiometric.isAvailable();
+      
+        if(!result.isAvailable) return;
+      
+        const verified = await NativeBiometric.verifyIdentity({
+          reason: "Complience",
+          title: "Desbloqueie seu celular",
+        })
+        .then(() => true)
+        .catch(() => false);
+      
+        if(!verified) return;
+
+        if(verified) {
+          await NativeBiometric.getCredentials({
+            server: "www.digital.com",
+          })
+          .then(() => {
+            setEmail(localStorage.getItem('email'))
+            setSenha(localStorage.getItem('senha'))
+            setAgencia(localStorage.getItem('agencia'))
+            history.push('/home')
+          })
+        }
+      }
+      performBiometricVerificatin()
+    }
+  }, [digital, history, setAgencia, setEmail, setSenha, verificacao])
  
   return (
     <IonPage>

@@ -9,14 +9,15 @@ interface Props {
     message?: string,
     toke?: number,
     agency?: string,
-  }
+  },
+  agencia: string
 }
 
-const AprovarComp = ({data}: Props) => {
+const AprovarComp = ({data, agencia}: Props) => {
   const [ usuarios, setUsuarios ] = useState<any>()
 
   useEffect(() => {
-    axios.get(`https://contause.digital/valida/consult.php?agency=${data?.agency}&accountCreationStatus=AWAITING_DOCUMENT_APPROVAL`)
+    axios.get(`https://contause.digital/valida/consult.php?agency=${agencia}&accountCreationStatus=AWAITING_DOCUMENT_APPROVAL`)
     .then((response) => {
       setUsuarios(response)
     })

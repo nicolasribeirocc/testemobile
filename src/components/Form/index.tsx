@@ -24,13 +24,6 @@ const Form = ({data, setEmail, setSenha, handleSubmit, verificado}:Props) => {
     if(data?.status === 1 || verificado) {
       history.push('/home')
     }
-
-    if(localStorage.getItem('email') && localStorage.getItem('senha')) {
-      inputEmail.current.value = localStorage.getItem('email')
-      inputSenha.current.value = localStorage.getItem('senha')
-      setEmail(localStorage.getItem('email'))
-      setSenha(localStorage.getItem('senha'))
-    }
   })
 
   return (

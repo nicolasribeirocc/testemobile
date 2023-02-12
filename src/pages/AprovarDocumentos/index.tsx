@@ -14,15 +14,16 @@ interface Props {
   email: string | undefined,
   setEmail: Dispatch<SetStateAction<string | undefined>>,
   setSenha: Dispatch<SetStateAction<string | undefined>>,
-  setData: Dispatch<React.SetStateAction<Data | string | undefined>>
+  setData: Dispatch<React.SetStateAction<Data | string | undefined>>,
+  agencia: string
 }
 
-const AprovarDocumentos: React.FC<Props>= ({data, email, setEmail, setSenha, setData}) => {
+const AprovarDocumentos: React.FC<Props>= ({data, email, setEmail, setSenha, setData, agencia}) => {
   
   return (
     <IonPage>
       <IonContent fullscreen>
-        <Menu elemento={<AprovarComp data={data} />} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+        <Menu elemento={<AprovarComp data={data} agencia={agencia}/>} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
       </IonContent>
     </IonPage>
 
