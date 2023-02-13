@@ -60,7 +60,7 @@ const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, 
       }
       performBiometricVerificatin()
     }
-  }, [digital, history, setAgencia, setEmail, setSenha, verificacao])
+  }, [auxDigital, digital, history, setAgencia, setEmail, setSenha, verificacao])
  
   return (
     <IonPage>
@@ -71,7 +71,6 @@ const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, 
         </Container>
       </IonContent>
     </IonPage>
-
   );
 };
 

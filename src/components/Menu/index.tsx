@@ -52,8 +52,7 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
         <IonHeader>
           <IonToolbar>
             <IonTitle>
-              {/* <FaUserCircle style={{fontSize: 30, paddingRight: 10}}/> */}
-              <span style={{fontSize: 20}}>{email}</span>
+              <span style={{fontSize: 20, marginLeft: 10}}>{email}</span>
             </IonTitle>
           </IonToolbar>
         </IonHeader>
@@ -91,7 +90,7 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
             <IonTitle>Compliance</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">
+        <IonContent className="ion-padding elemento">
           {elemento}
         </IonContent>
       </IonPage>

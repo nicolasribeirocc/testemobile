@@ -4,6 +4,7 @@ import HomeComp from 'components/Home';
 import Menu from 'components/Menu';
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { useHistory } from 'react-router';
+import styled from 'styled-components';
 
 type Data = {
   status?: number,
@@ -12,6 +13,7 @@ type Data = {
 }
 
 interface Props {
+  agencia: string
   data: Data | undefined,
   email: string,
   setEmail: Dispatch<SetStateAction<string | undefined>>,
@@ -24,7 +26,8 @@ interface Props {
 }
 
 const Home: React.FC<Props> = (
-  { data, 
+  { agencia,   
+    data, 
     email, 
     setEmail,
     senha,
@@ -75,13 +78,18 @@ const Home: React.FC<Props> = (
     }, [digital, email, history, senha, setData, setDigital, setVerificado, verificacao])
   
   return (
-    <IonPage>
-      <IonContent fullscreen>
-        <Menu elemento={<HomeComp data={data} />} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData} setVerificado={setVerificado}/>
-      </IonContent>
-    </IonPage>
-
+    <Container>
+      <IonPage>
+        <IonContent fullscreen>
+          <Menu elemento={<HomeComp agencia={agencia} />} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData} setVerificado={setVerificado}/>
+        </IonContent>
+      </IonPage>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  ion-content {--overflow: hidden}
+`
 
 export default Home

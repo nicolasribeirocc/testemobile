@@ -7,7 +7,7 @@ const AnaliseComp = ({id}: any) => {
     <Container>
       <Titulo>Análise de Perfil</Titulo>
       <Informacoes>
-        <h1>Informações do Usuario</h1>
+        <h1>Informações do Usuário</h1>
         <UserInfo id={id} />
       </Informacoes>
     </Container>

@@ -8,6 +8,11 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+
+  .info {
+    bottom: 5%;
+    position: absolute;
+  }
 `
 
 

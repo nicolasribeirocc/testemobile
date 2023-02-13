@@ -104,6 +104,7 @@ const App: React.FC = () => {
         </Route>
         <Route exact path="/home">
           <Home
+            agencia={agencia}
             data={data} 
             email={email}
             setEmail={setEmail}

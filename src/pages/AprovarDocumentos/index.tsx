@@ -2,6 +2,8 @@ import { IonContent, IonPage } from '@ionic/react';
 import AprovarComp from 'components/Aprovar';
 import Menu from 'components/Menu';
 import React, { Dispatch, SetStateAction } from 'react'
+import styled from 'styled-components';
+import 'theme/variables.css'
 
 type Data = {
   status?: number,
@@ -21,13 +23,27 @@ interface Props {
 const AprovarDocumentos: React.FC<Props>= ({data, email, setEmail, setSenha, setData, agencia}) => {
   
   return (
-    <IonPage>
-      <IonContent fullscreen>
-        <Menu elemento={<AprovarComp data={data} agencia={agencia}/>} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
-      </IonContent>
-    </IonPage>
-
+    <Container>
+      <IonPage>
+        <IonContent fullscreen>
+          <Menu elemento={<AprovarComp data={data} agencia={agencia}/>} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+        </IonContent>
+      </IonPage>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  ion-content {--overflow: hidden}
+
+  @media screen and (max-height: 859px) {
+    ion-content {
+      --overflow: auto;
+    }
+    ion-content .elemento {
+      --ion-background-color: var(--azul);
+    }
+  }
+`
 
 export default AprovarDocumentos

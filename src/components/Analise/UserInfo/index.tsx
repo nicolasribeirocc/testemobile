@@ -1,14 +1,17 @@
+import { LinearProgress } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Container } from './style'
 
 const UserInfo = ({id}: any) => {
   const [dados, setDados] = useState<any>()
+  const [load, setLoad] = useState(false)
 
   useEffect(() => {
     axios.get(`https://contause.digital/valida/detalhe.php?tipo=retornaconta&idnew=${id.id}`)
     .then((response) => {
       setDados(response)
+      setLoad(true)
     })
     .catch((error) => {
       console.log(error);
@@ -19,6 +22,7 @@ const UserInfo = ({id}: any) => {
 
   return (
     <Container>
+      {!load && <LinearProgress style={{ height: 6 }} />}
       {dado && <>
         <h3>Nome Completo</h3>
         <p>{dado.fullName} </p>
