@@ -1,4 +1,4 @@
-import React, { useEffect, MouseEvent, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 import { Capacitor } from "@capacitor/core";
 import { App as capApp } from '@capacitor/app'
 import { Route, Switch } from 'react-router-dom';
@@ -39,6 +39,7 @@ const App: React.FC = () => {
   const [ verificado, setVerificado ] = useState<any>()
   const [ digital, setDigital ] = useState<any>(false)
   const [ agencia, setAgencia ] = useState<any>(false)
+  const [ auxDigital, setAuxDigital ] = useState(false)
   
   const [erro] = useIonAlert() 
 
@@ -62,6 +63,8 @@ const App: React.FC = () => {
     })    
   }
 
+  useEffect(() => {
+    setAuxDigital(false)
     if (Capacitor.isNativePlatform()) {
       capApp.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
@@ -72,11 +75,13 @@ const App: React.FC = () => {
         } else if (window.location.pathname === "/home") {
           let ans = true
           if (ans) {
+            setAuxDigital(true)
             capApp.exitApp()
           } 
         } 
       });
     }
+  }, [])
 
   return (
   <IonApp>
@@ -93,6 +98,8 @@ const App: React.FC = () => {
             verificado={verificado} 
             handleSubmit={handleSubmit} 
             digital={digital}
+            auxDigital={auxDigital}
+            setAuxDigital={setAuxDigital}
           />
         </Route>
         <Route exact path="/home">

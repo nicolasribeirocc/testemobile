@@ -19,10 +19,12 @@ interface Props {
   setVerificado: Dispatch<SetStateAction<any> | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void,
   verificado: boolean,
-  digital: boolean
+  digital: boolean,
+  auxDigital: boolean,
+  setAuxDigital: Dispatch<SetStateAction<boolean>>,
 }
 
-const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, setVerificado, handleSubmit, verificado, digital}) => {
+const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, setVerificado, handleSubmit, verificado, digital, auxDigital}) => {
   const history = useHistory()
   const verificacao = localStorage.getItem('digital verificada')
 
@@ -32,6 +34,8 @@ const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, 
         const result = await NativeBiometric.isAvailable();
       
         if(!result.isAvailable) return;
+
+        if(auxDigital) return
       
         const verified = await NativeBiometric.verifyIdentity({
           reason: "Complience",

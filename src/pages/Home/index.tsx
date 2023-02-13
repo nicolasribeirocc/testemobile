@@ -4,7 +4,6 @@ import HomeComp from 'components/Home';
 import Menu from 'components/Menu';
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { useHistory } from 'react-router';
-import { App as capApp } from '@capacitor/app'
 
 type Data = {
   status?: number,
