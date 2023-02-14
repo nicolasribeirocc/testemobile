@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import "theme/variables.css"
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
   align-items: center;
-  background-color: var(--azul);
+  background-color: ${azul};
   display: flex;
   flex-direction: column;
   height: 100vh;

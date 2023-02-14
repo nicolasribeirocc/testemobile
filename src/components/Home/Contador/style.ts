@@ -9,7 +9,8 @@ export const Container = styled.div`
 `
 
 export const Dados = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  margin-top: 1em;
 `

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
-  background-color: var(--azul);
+  background-color: ${azul};
   box-sizing: border-box;
   height: 100vh;
   margin: 0;

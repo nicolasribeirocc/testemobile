@@ -15,21 +15,11 @@ export const Container = styled.div`
 `
 
 export const Labels = styled.div`
-  font-weight: bold;
-  color: #fff;
   display: flex;
-
-  & p:nth-child(1) {
-      padding-left: 15px;
-  }
-
-  & p:nth-child(2) {
-      padding-left: 15px;
-  }
-
-  & p:nth-child(3) {
-      padding-left: 120px;
-  }
+  color: #fff;
+  font-weight: bold;
+  justify-content: space-between;
+  margin: 0 6.2em 0 1.5em ;
 `
 export const Titulo = styled.h2`
   font-size: xx-large;

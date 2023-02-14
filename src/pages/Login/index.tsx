@@ -5,6 +5,7 @@ import Form from 'components/Form';
 import Logo from 'components/Form/logo';
 import { NativeBiometric } from 'capacitor-native-biometric';
 import { useHistory } from 'react-router';
+import { azul } from 'theme/variaveis'
 
 interface Props {
   data?: {
@@ -15,8 +16,6 @@ interface Props {
   setEmail: Dispatch<SetStateAction<string | undefined> | null>,
   setSenha: Dispatch<SetStateAction<string | undefined> | null>,
   setAgencia: Dispatch<SetStateAction<string | undefined> | null>,
-  setData: Dispatch<SetStateAction<any>>,
-  setVerificado: Dispatch<SetStateAction<any> | null>,
   handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void,
   verificado: boolean,
   digital: boolean,
@@ -24,7 +23,7 @@ interface Props {
   setAuxDigital: Dispatch<SetStateAction<boolean>>,
 }
 
-const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, setData, setVerificado, handleSubmit, verificado, digital, auxDigital}) => {
+const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, handleSubmit, verificado, digital, auxDigital}) => {
   const history = useHistory()
   const verificacao = localStorage.getItem('digital verificada')
 

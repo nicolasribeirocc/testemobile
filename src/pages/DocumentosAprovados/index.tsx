@@ -3,7 +3,7 @@ import AprovadosComp from 'components/Aprovados';
 import Menu from 'components/Menu';
 import React, { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components';
-import 'theme/variables.css'
+import { azul } from 'theme/variaveis'
 
 type Data = {
   status?: number,
@@ -42,7 +42,7 @@ const Container = styled.div`
       --overflow: auto;
     }
     ion-content .elemento {
-      --ion-background-color: var(--azul);
+      --ion-background-color: ${azul};
     }
   }
 `

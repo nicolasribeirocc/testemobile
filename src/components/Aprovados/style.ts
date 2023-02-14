@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { azul, laranja } from 'theme/variaveis'
 
 export const Container = styled.div`
-  background-color: var(--azul);
+  background-color: ${azul};
   height: 100vh;
 
   .aviso {
-    color: var(--laranja);
+    color: ${laranja};
     font-size: 16px;
     font-weight: 700;
     margin-top: 2em;
@@ -13,23 +14,12 @@ export const Container = styled.div`
     text-decoration: underline;
   }
 `
-
 export const Labels = styled.div`
-  font-weight: bold;
   color: #fff;
   display: flex;
-
-  & p:nth-child(1) {
-      padding-left: 15px;
-  }
-
-  & p:nth-child(2) {
-      padding-left: 15px;
-  }
-
-  & p:nth-child(3) {
-      padding-left: 120px;
-  }
+  font-weight: bold;
+  justify-content: space-between;
+  margin: 0 6.2em 0 1.5em ;
 `
 export const Titulo = styled.h2`
   font-size: xx-large;

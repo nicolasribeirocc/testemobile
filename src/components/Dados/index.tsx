@@ -16,9 +16,9 @@ const Dados = ({usuario}: any) => {
         <Infos>
           <p>{usuario.id_new}</p>
           <Usuarios>{usuario.fullName}</Usuarios>
-          <p>{usuario.createdAt}</p>
+          <p style={{ maxWidth: '27%' }}>{usuario.createdAt}</p>
         </Infos>
-        <button>{<FaRegEye color='#000' onClick={handleAnalyze}/>}</button>
+        <button>{<FaRegEye color='#000' size={20} onClick={handleAnalyze}/>}</button>
       </Registro>
     </>
   )

@@ -14,7 +14,6 @@ type Data = {
 
 interface Props {
   agencia: string
-  data: Data | undefined,
   email: string,
   setEmail: Dispatch<SetStateAction<string | undefined>>,
   setSenha: Dispatch<SetStateAction<string | undefined>>,
@@ -27,7 +26,6 @@ interface Props {
 
 const Home: React.FC<Props> = (
   { agencia,   
-    data, 
     email, 
     setEmail,
     senha,

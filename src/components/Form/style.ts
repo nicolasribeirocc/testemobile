@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { laranja } from "theme/variaveis";
 
 export const FormContainer = styled.form`
   display: flex;
@@ -26,7 +27,7 @@ export const FormContainer = styled.form`
   }
 
   & input:focus {
-    border: 2px solid var(--laranja);
+    border: 2px solid ${laranja};
     outline: none;
   }
 
@@ -44,8 +45,8 @@ export const FormContainer = styled.form`
   }
 
   & button:active {
-    color: var(--laranja);
-    border: 3px solid var(--laranja);
+    color: ${laranja};
+    border: 3px solid ${laranja};
   }
 `
 

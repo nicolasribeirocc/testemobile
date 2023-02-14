@@ -50,9 +50,9 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
     <Container>
       <IonMenu contentId="main-content">
         <IonHeader>
-          <IonToolbar>
+          <IonToolbar mode='ios'>
             <IonTitle>
-              <span style={{fontSize: 20, marginLeft: 10}}>{email}</span>
+              <span>{email}</span>
             </IonTitle>
           </IonToolbar>
         </IonHeader>

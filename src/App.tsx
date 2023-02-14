@@ -21,9 +21,6 @@ import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
 
-/* Theme variables */
-import './theme/variables.css';
-
 setupIonicReact();
 
 type Data = {
@@ -93,8 +90,6 @@ const App: React.FC = () => {
             setEmail={setEmail} 
             setSenha={setSenha} 
             setAgencia={setAgencia}
-            setData={setData}
-            setVerificado={setVerificado}
             verificado={verificado} 
             handleSubmit={handleSubmit} 
             digital={digital}
@@ -105,7 +100,6 @@ const App: React.FC = () => {
         <Route exact path="/home">
           <Home
             agencia={agencia}
-            data={data} 
             email={email}
             setEmail={setEmail}
             senha={senha} 
@@ -117,16 +111,43 @@ const App: React.FC = () => {
           />
         </Route>
         <Route exact path={'/aprovar-documentos'}>
-          <AprovarDocumentos data={data} agencia={agencia} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+          <AprovarDocumentos 
+            data={data} 
+            agencia={agencia} 
+            email={email} 
+            setEmail={setEmail} 
+            setSenha={setSenha} 
+            setData={setData}
+          />
         </Route>
         <Route exact path={'/documentos-aprovados'}>
-          <Aprovados data={data} agencia={agencia} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+          <Aprovados 
+            data={data} 
+            agencia={agencia} 
+            email={email} 
+            setEmail={setEmail} 
+            setSenha={setSenha} 
+            setData={setData}
+          />
         </Route>
         <Route exact path={'/reprovados'}>
-          <Reprovados data={data} agencia={agencia} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+          <Reprovados 
+            data={data} 
+            agencia={agencia} 
+            email={email} 
+            setEmail={setEmail} 
+            setSenha={setSenha} 
+            setData={setData}
+          />
         </Route>
         <Route path={'/analise-perfil/:id'}>
-          <AnalisePerfil data={data} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData}/>
+          <AnalisePerfil 
+            data={data} 
+            email={email} 
+            setEmail={setEmail} 
+            setSenha={setSenha} 
+            setData={setData}
+          />
         </Route>
       </Switch>
     </IonReactRouter>
