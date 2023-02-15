@@ -12,6 +12,7 @@
     "@capacitor/ios": "^4.6.2",
     "@capacitor/keyboard": "^4.1.1",
     "@capacitor/status-bar": "^4.1.1",
+    "@capawesome/capacitor-screen-orientation": "^2.0.2",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@ionic/react": "^6.0.0",

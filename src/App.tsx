@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { IonApp, setupIonicReact, useIonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import axios from 'axios';
+import { ScreenOrientation, OrientationType } from '@capawesome/capacitor-screen-orientation';
 
 import Login from './pages/Login';
 import Home from 'pages/Home';
@@ -30,6 +31,7 @@ type Data = {
 }
 
 const App: React.FC = () => {
+  ScreenOrientation.lock({ type: OrientationType.PORTRAIT });
   const [ data, setData ] = useState<Data | any>()
   const [ email, setEmail ] = useState<any>()
   const [ senha, setSenha ] = useState<any>()
@@ -110,7 +112,7 @@ const App: React.FC = () => {
             setDigital={setDigital}
           />
         </Route>
-        <Route exact path={'/aprovar-documentos'}>
+        <Route exact path='/aprovar-documentos'>
           <AprovarDocumentos 
             data={data} 
             agencia={agencia} 
@@ -120,7 +122,7 @@ const App: React.FC = () => {
             setData={setData}
           />
         </Route>
-        <Route exact path={'/documentos-aprovados'}>
+        <Route exact path='/documentos-aprovados'>
           <Aprovados 
             data={data} 
             agencia={agencia} 
@@ -130,7 +132,7 @@ const App: React.FC = () => {
             setData={setData}
           />
         </Route>
-        <Route exact path={'/reprovados'}>
+        <Route exact path='/reprovados'>
           <Reprovados 
             data={data} 
             agencia={agencia} 
@@ -140,7 +142,7 @@ const App: React.FC = () => {
             setData={setData}
           />
         </Route>
-        <Route path={'/analise-perfil/:id'}>
+        <Route path='/analise-perfil/:id'>
           <AnalisePerfil 
             data={data} 
             email={email} 
