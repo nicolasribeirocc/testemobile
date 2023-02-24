@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { azul, laranja } from 'theme/variaveis'
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
   ion-toolbar {
@@ -9,6 +9,6 @@ export const Container = styled.div`
   color: #fff;
  }
  ion-menu-button {
-  color: ${laranja};
+  color: #fff;
  }
 `

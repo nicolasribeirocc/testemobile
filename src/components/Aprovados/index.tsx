@@ -4,6 +4,7 @@ import axios from 'axios';
 import Dados from 'components/Dados';
 import { LinearProgress } from '@mui/material'
 import Botoes from 'components/BotoesPagina';
+import { IonRefresher, IonRefresherContent, RefresherEventDetail } from '@ionic/react';
 
 interface Props {
   data?: {
@@ -31,8 +32,27 @@ const AprovadosComp = ({data, agencia}: Props)  => {
     })   
   }, [agencia, pagina])
 
+  function handleRefresh(event: CustomEvent<RefresherEventDetail>) {
+    setTimeout(() => {
+      axios.get(`https://contause.digital/valida/consult.php?agency=${agencia}&accountCreationStatus=COMPLETED&page=${pagina}`)
+      .then((response) => {
+        setUsuarios(response)
+        setLoad(true)
+      })
+      .catch((error) => {
+        console.log(error);
+      })  
+      setPagina(1)
+      event.detail.complete();
+    }, 2000);
+  }
+
+
   return (
     <Container>
+      <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+        <IonRefresherContent></IonRefresherContent>
+      </IonRefresher>
       <Titulo>Documentos Aprovados</Titulo>
       <Labels>
         <p>#</p>

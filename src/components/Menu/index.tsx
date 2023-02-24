@@ -79,6 +79,7 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
               <p onClick={logOut}>Sair</p>
             </IonItem>
           </IonList>
+          <p>alo</p>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">

@@ -5,7 +5,6 @@ import Form from 'components/Form';
 import Logo from 'components/Form/logo';
 import { NativeBiometric } from 'capacitor-native-biometric';
 import { useHistory } from 'react-router';
-import { azul } from 'theme/variaveis'
 
 interface Props {
   data?: {

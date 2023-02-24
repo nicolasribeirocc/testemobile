@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { azul, laranja } from "theme/variaveis";
 
 export const Container = styled.div`
-  background-color: var(--azul);
+  background-color: ${azul};
   height: 100vh;
 
   .aviso {
-    color: var(--laranja);
+    color: ${laranja};
     font-size: 16px;
     font-weight: 700;
     margin-top: 2em;
