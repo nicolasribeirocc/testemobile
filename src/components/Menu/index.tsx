@@ -13,7 +13,8 @@ import {
 } from '@ionic/react';
 import { FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } from 'react-icons/fa'
 import { useHistory } from 'react-router';
-import { Container } from './style';
+import { Container, Logo } from './style';
+import logo from '../../assets/images/logo_colorido.png'
 
 type Data = {
   status?: number,
@@ -59,27 +60,27 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
         <IonContent className="ion-padding">
           <IonList>
             <IonItem>
-              <FaAlignLeft style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
+              <FaAlignLeft className='icone'/> 
               <span onClick={navigateToDashboard}>Dashboard</span>
             </IonItem>
             <IonItem>
-              <FaFile style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/>
+              <FaFile className='icone'/>
               <p onClick={navigateToAprovar}>Aprovar Documentos</p>
             </IonItem>
             <IonItem>
-              <FaFileAlt style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
+              <FaFileAlt className='icone'/> 
               <p onClick={navigateToAprovados}>Documentos Aprovados</p>
             </IonItem>
             <IonItem>
-              <FaListUl style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/>
+              <FaListUl className='icone'/>
               <p onClick={navigateToReprovados}>Reprovados</p>
             </IonItem>
             <IonItem>
-              <FaPowerOff style={{fontSize: 30, paddingRight: 10, color: '#F15922'}}/> 
+              <FaPowerOff className='icone'/> 
               <p onClick={logOut}>Sair</p>
             </IonItem>
           </IonList>
-          <p>alo</p>
+          <Logo src={logo} alt="logo colorido" />
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -88,7 +89,7 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
             <IonButtons slot="start">
               <IonMenuButton></IonMenuButton>
             </IonButtons>
-            <IonTitle>Compliance</IonTitle>
+            <IonTitle><p>Compliance</p></IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding elemento">
