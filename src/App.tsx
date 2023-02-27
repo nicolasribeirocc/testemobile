@@ -39,7 +39,6 @@ const App: React.FC = () => {
   const [ digital, setDigital ] = useState<any>(false)
   const [ agencia, setAgencia ] = useState<any>(false)
   const [ auxDigital, setAuxDigital ] = useState(false)
-  //
   
   const [erro] = useIonAlert() 
 
