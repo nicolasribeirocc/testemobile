@@ -5,13 +5,12 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
  }
 
  body {
     width: 100vw;
     height: 100vh;
-    font-family: 'Lato', sans-serif;
   }
 `
 
