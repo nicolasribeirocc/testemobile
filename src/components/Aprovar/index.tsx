@@ -55,7 +55,7 @@ const AprovarComp = ({data, agencia}: Props) => {
         <Dados key={usuario.id_new} usuario={usuario}/>
       ))}
       {usuarios?.data.length === 0 && <p className='aviso'>Entre novamente usando seu login e senha</p>}
-      {usuarios?.data.length !== 0 && <Botoes pagina={pagina} setPagina={setPagina}/>}   
+      {usuarios?.data.length !== 0 && <Botoes pagina={pagina} setPagina={setPagina} qtd={usuarios?.data.length}/>}   
     </Container>
   )
 }
