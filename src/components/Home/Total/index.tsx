@@ -10,7 +10,7 @@ interface Props {
 const Total = ({ agencia }: Props) => {
   const [ qtd, setQtd ] = useState()
   useEffect(() => {
-    axios.get(`https://contause.digital/valida/consult.php?agency=${agencia}&accountCreationStatus=COMPLETED&cont=1`)
+    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED&cont=1&service=contadorgeral`)
     .then((response) => {
       setQtd(response.data[0].cont);
     })

@@ -22,7 +22,7 @@ const ReprovadoComp = ({data, agencia}: Props) => {
   const [ pagina, setPagina ] = useState(1)
 
   useEffect(() => {
-    axios.get(`https://contause.digital/valida/consult.php?agency=${agencia}&accountCreationStatus=COMPLETED_FAIL&page=${pagina}`)
+    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED_FAIL&page=${pagina}&service=listagem`)
     .then((response) => {
       setUsuarios(response)
       setLoad(true)
@@ -34,14 +34,6 @@ const ReprovadoComp = ({data, agencia}: Props) => {
 
   function handleRefresh(event: CustomEvent<RefresherEventDetail>) {
     setTimeout(() => {
-      axios.get(`https://contause.digital/valida/consult.php?agency=${agencia}&accountCreationStatus=COMPLETED_FAIL&page=${pagina}`)
-      .then((response) => {
-        setUsuarios(response)
-        setLoad(true)
-      })
-      .catch((error) => {
-        console.log(error);
-      })   
       setPagina(1)
       event.detail.complete();
     }, 2000);

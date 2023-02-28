@@ -11,7 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
-import { FaAlignLeft, FaFile, FaFileAlt, FaListUl, FaPowerOff } from 'react-icons/fa'
+import { FaAlignLeft, FaFile, FaPowerOff, FaCheck, FaTimes } from 'react-icons/fa'
 import { useHistory } from 'react-router';
 import { Container, Logo } from './style';
 import logo from '../../assets/images/logo_colorido.png'
@@ -68,12 +68,12 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
               <p onClick={navigateToAprovar}>Aprovar Documentos</p>
             </IonItem>
             <IonItem>
-              <FaFileAlt className='icone'/> 
+              <FaCheck className='icone'/> 
               <p onClick={navigateToAprovados}>Documentos Aprovados</p>
             </IonItem>
             <IonItem>
-              <FaListUl className='icone'/>
-              <p onClick={navigateToReprovados}>Reprovados</p>
+              <FaTimes className='icone'/>
+              <p onClick={navigateToReprovados}>Documentos Reprovados</p>
             </IonItem>
             <IonItem>
               <FaPowerOff className='icone'/> 

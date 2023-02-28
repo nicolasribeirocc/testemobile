@@ -12,12 +12,12 @@ const Contador = ({ agencia }: Props) => {
   const [ PJ, setPJ ] = useState<string>()
   
   useEffect(() => {
-    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED&cont=1&tipoconta=PF`)
+    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED&tipoconta=PF&service=contador`)
     .then((response) => {
       setPF(response.data[0].cont)
     })
     .catch((error) => console.log(error))
-    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED&cont=1&tipoconta=PJ`)
+    axios.get(`https://contause.digital/valida/cont.php?agency=${agencia}&accountCreationStatus=COMPLETED&tipoconta=PJ&service=contador`)
     .then((response) => {
       setPJ(response.data[0].cont)
     })
