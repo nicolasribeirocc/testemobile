@@ -54,8 +54,7 @@ const ReprovadoComp = ({data, agencia}: Props) => {
       {usuarios && usuarios.data.map((usuario: any) => (
         <Dados key={usuario.id_new} usuario={usuario}/>
       ))}
-      {usuarios?.data.length === 0 && <p className='aviso'>Entre novamente usando seu login e senha</p>}
-      {usuarios?.data.length !== 0 && <Botoes pagina={pagina} setPagina={setPagina} qtd={usuarios?.data.length }/>}   
+      {usuarios?.data.length === 0 ? <p className='aviso'>Sem Resultados!</p> : <Botoes pagina={pagina} setPagina={setPagina} qtd={usuarios?.data.length }/>}
     </Container>
   )
 }

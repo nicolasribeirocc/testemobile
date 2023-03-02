@@ -58,8 +58,8 @@ const Home: React.FC<Props> = (
         
           if(!verified) {
               setVerificado(false)
-              setData('')
-              history.push('/')
+              // setData('')
+              // history.push('/')
           }
     
           if(verified) {
