@@ -21,7 +21,8 @@ interface Props {
   setData: Dispatch<React.SetStateAction<Data | string | undefined>>,
   setVerificado: Dispatch<React.SetStateAction<boolean>>,
   digital: boolean,
-  setDigital: Dispatch<React.SetStateAction<boolean>>
+  setDigital: Dispatch<React.SetStateAction<boolean>>,
+  url?: string
 }
 
 const Home: React.FC<Props> = (
@@ -32,8 +33,9 @@ const Home: React.FC<Props> = (
     setSenha, 
     setData, 
     setVerificado, 
-    setDigital, 
-    digital, }) => {
+    setDigital,
+    digital,
+    url, }) => {
 
     const verificacao = localStorage.getItem('digital verificada')
     const history = useHistory()
@@ -47,7 +49,8 @@ const Home: React.FC<Props> = (
         
           const verified = await NativeBiometric.verifyIdentity({
             reason: "Complience",
-            title: "Cadastre seu login",
+            title: "Complience",
+            subtitle: "Cadastre sua Digital",
             maxAttempts: 3,
           })
             .then(() => true)
@@ -79,7 +82,7 @@ const Home: React.FC<Props> = (
     <Container>
       <IonPage>
         <IonContent fullscreen>
-          <Menu elemento={<HomeComp agencia={agencia} />} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData} setVerificado={setVerificado}/>
+          <Menu elemento={<HomeComp agencia={agencia} url={url}/>} email={email} setEmail={setEmail} setSenha={setSenha} setData={setData} setVerificado={setVerificado}/>
         </IonContent>
       </IonPage>
     </Container>

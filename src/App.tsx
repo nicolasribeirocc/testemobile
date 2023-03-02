@@ -39,6 +39,7 @@ const App: React.FC = () => {
   const [ digital, setDigital ] = useState<any>(false)
   const [ agencia, setAgencia ] = useState<any>(false)
   const [ auxDigital, setAuxDigital ] = useState(false)
+  const [ url, setUrl ] = useState<string>()
   
   const [erro] = useIonAlert() 
 
@@ -46,6 +47,7 @@ const App: React.FC = () => {
     e.preventDefault()
     axios.get(`https://contause.digital/valida/login.php?login=${email}&senha=${senha}`)
    .then((response) => {
+      setUrl(response.data.logo);
       setData(response.data)
       setAgencia(response.data.agency)
       localStorage.setItem('agencia', response.data.agency)
@@ -110,6 +112,7 @@ const App: React.FC = () => {
             setVerificado={setVerificado}
             digital={digital}
             setDigital={setDigital}
+            url={url}
           />
         </Route>
         <Route exact path='/aprovar-documentos'>

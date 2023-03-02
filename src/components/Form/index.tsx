@@ -30,7 +30,7 @@ const Form = ({data, setEmail, setSenha, handleSubmit, verificado}:Props) => {
       <FormContainer action="">
         <label htmlFor="email">E-mail</label>
         <input 
-          type="text" 
+          type="email" 
           name='email' 
           id='email'
           ref={inputEmail}

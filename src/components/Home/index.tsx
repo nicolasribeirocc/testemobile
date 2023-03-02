@@ -4,16 +4,17 @@ import { Container, Logo } from './style'
 import Total from './Total'
 
 interface Props {
-  agencia: string
+  agencia: string,
+  url?: string,
 }
 
-const HomeComp = ({ agencia }: Props)=> {
+const HomeComp = ({ agencia, url }: Props)=> {
   return (
     <Container>
       <Logo />
       <div className='info'>
         <Total agencia={agencia} />
-        <Contador agencia={agencia} />
+        <Contador agencia={agencia} url={url}/>
       </div>
     </Container>
   )

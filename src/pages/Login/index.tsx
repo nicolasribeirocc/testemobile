@@ -37,7 +37,8 @@ const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, handleSub
       
         const verified = await NativeBiometric.verifyIdentity({
           reason: "Complience",
-          title: "Desbloqueie seu celular",
+          title: "Complience",
+          subtitle: "Faça login usando sua digital",
         })
         .then(() => true)
         .catch(() => false);

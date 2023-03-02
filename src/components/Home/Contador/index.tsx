@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Logo  from 'assets/images/logoby.png'
 import { Container, Dados } from './style'
 import axios from 'axios'
 
 interface Props {
-  agencia: string
+  agencia: string,
+  url?: string,
 }
 
-const Contador = ({ agencia }: Props) => {
+const Contador = ({ agencia, url }: Props) => {
   const [ PF, setPF ] = useState<string>()
   const [ PJ, setPJ ] = useState<string>()
   
@@ -26,7 +26,7 @@ const Contador = ({ agencia }: Props) => {
 
   return (
     <Container>
-      <img src={Logo} width={200} alt="" />
+      <img src={url} width={200} alt="" />
       <Dados>
         <div>
           <p>Contas PF</p>

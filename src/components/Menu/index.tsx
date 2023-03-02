@@ -33,6 +33,10 @@ interface Props {
 function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Props ) {
   const history = useHistory()
 
+  let emailCortado = email?.split('@')
+  let nome: string | undefined
+  emailCortado ? nome = emailCortado[0] : nome = email
+
   const navigateToDashboard = () => history.push('/home')
   const navigateToAprovar = () => history.push('/aprovar-documentos')
   const navigateToAprovados = () => history.push('/documentos-aprovados')
@@ -53,7 +57,7 @@ function Menu({elemento, email, setEmail, setSenha, setData, setVerificado}: Pro
         <IonHeader>
           <IonToolbar mode='ios'>
             <IonTitle>
-              <span>{email}</span>
+              <span style={{ textTransform: 'capitalize'}}>{nome}</span>
             </IonTitle>
           </IonToolbar>
         </IonHeader>
