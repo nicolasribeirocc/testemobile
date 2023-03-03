@@ -48,8 +48,8 @@ const Home: React.FC<Props> = (
           if(!result.isAvailable) return;
         
           const verified = await NativeBiometric.verifyIdentity({
-            reason: "Complience",
-            title: "Complience",
+            reason: "Compliance",
+            title: "Compliance",
             subtitle: "Cadastre sua Digital",
             maxAttempts: 3,
           })
