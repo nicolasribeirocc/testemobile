@@ -36,8 +36,8 @@ const Login: React.FC<Props> = ({data, setEmail, setSenha, setAgencia, handleSub
         if(auxDigital) return
       
         const verified = await NativeBiometric.verifyIdentity({
-          reason: "Complience",
-          title: "Complience",
+          reason: "Compliance",
+          title: "Compliance",
           subtitle: "Faça login usando sua digital",
         })
         .then(() => true)
