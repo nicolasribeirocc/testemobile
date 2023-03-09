@@ -51,6 +51,7 @@ const App: React.FC = () => {
       setData(response.data)
       setAgencia(response.data.agency)
       localStorage.setItem('agencia', response.data.agency)
+      localStorage.setItem('logo', response.data.logo)
       if(response.data.status === 0) {
         erro({
           header: 'Login Incorreto',

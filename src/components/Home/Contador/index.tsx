@@ -23,10 +23,12 @@ const Contador = ({ agencia, url }: Props) => {
     })
     .catch((error) => console.log(error))
   }, [agencia])
+  
+  let logo = localStorage.getItem('logo')
 
   return (
     <Container>
-      <img src={url} width={200} alt="" />
+      <img src={logo ? logo : url} width={200} alt="" />
       <Dados>
         <div>
           <p>Contas PF</p>
