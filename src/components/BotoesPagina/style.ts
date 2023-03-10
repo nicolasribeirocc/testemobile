@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { azul, laranja } from 'theme/variaveis'
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
   align-items: center;
@@ -15,11 +15,14 @@ export const Container = styled.div`
   }
 
   & button {
-    background-color: ${laranja};
+    align-content: center;
+    background-color: #fff;
     border-radius: 5px;
     color: ${azul};
+    display: flex;
     font-size: large;
     font-weight: bold;
+    justify-content: center;
     padding: 10px;
     width: 80px;
   }

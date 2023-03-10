@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { Container } from './style'
 
 interface Props {
@@ -20,9 +21,9 @@ const Botoes = ({pagina, setPagina, qtd}: Props) => {
   return (
     <div>
       <Container>
-        <button onClick={diminuiPagina}>&#60;</button>
+        <button onClick={diminuiPagina}>{<FaArrowLeft />}</button>
         <p>{pagina}</p>
-        {qtd === 10 ? <button onClick={aumentaPagina}>&#62;</button> : <button style={{visibility: 'hidden'}} onClick={aumentaPagina}>&#62;</button>}
+        {qtd === 10 ? <button onClick={aumentaPagina}>{<FaArrowRight />}</button> : <button style={{visibility: 'hidden'}} onClick={aumentaPagina}>{<FaArrowRight />}</button>}
       </Container>
     </div>
   )

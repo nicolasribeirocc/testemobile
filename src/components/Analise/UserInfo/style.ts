@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { laranja } from 'theme/variaveis'
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
   margin-left: 10px;
@@ -10,7 +10,7 @@ export const Container = styled.div`
   }
 
   p {
-    color: ${laranja};
+    color: ${azul};
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 30px;

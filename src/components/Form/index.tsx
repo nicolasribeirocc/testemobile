@@ -34,7 +34,7 @@ const Form = ({data, setEmail, setSenha, handleSubmit, verificado}:Props) => {
           name='email' 
           id='email'
           ref={inputEmail}
-          placeholder='contause@casadocredito.com.br' 
+          placeholder='exemplo@exemplo.com.br' 
           autoComplete='off'
           onChange={(e) => {
             setEmail(e.target.value.toLowerCase().trimStart().trimEnd())

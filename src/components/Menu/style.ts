@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { azul, laranja } from 'theme/variaveis'
+import { azul } from 'theme/variaveis'
 
 export const Container = styled.div`
 
   .icone {
     font-size: 30px; 
     padding-right: 10px;
-    color: ${laranja}
+    color: ${azul}
   }
 
   ion-toolbar {
